@@ -1,0 +1,30 @@
+
+import java.io.IOException;
+
+public class Codeforces {
+     static class Node {
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+        }
+
+    }
+     static void printRecursion(Node head){
+        if(head==null){
+            return;
+        }
+        System.out.print(head.data+" ");
+         printRecursion(head.next);
+    }
+    public static void main(String[] args) throws IOException {
+        Node a = new Node(3);
+        Node b = new Node(4);
+        Node c = new Node(7);
+        Node d = new Node(9);
+        a.next=b;
+        b.next=c;
+        c.next=d;
+      printRecursion(a);
+    }
+    }
