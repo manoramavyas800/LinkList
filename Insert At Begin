@@ -1,0 +1,43 @@
+package LinkedListbassic;
+
+public class LinkedListPrint {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+    static class linkedList {
+        Node head = null;
+        Node tail = null;
+       void insertAtBegin(int data) {
+            Node temp = new Node(data);
+            if (head == null) {
+                head = tail = temp;
+            }else{
+                temp.next = head;
+                head = temp;
+            }
+       }
+        void display() {
+            Node temp = head;
+            while (temp != null) {
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        linkedList list=new linkedList();
+        list.insertAtBegin(1);
+        list.insertAtBegin(2);
+        list.insertAtBegin(3);
+        list.insertAtBegin(4);
+        list.insertAtBegin(5);
+
+       list.display();
+    }
+}
