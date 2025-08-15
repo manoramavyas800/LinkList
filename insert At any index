@@ -1,0 +1,84 @@
+package LinkedListbassic;
+
+public class LinkedListPrint {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+      static class linkedList {
+        Node head=null;
+        Node tail=null;
+        int size=0;
+         void insertAtEnd(int data) {
+            Node newNode = new Node(data);
+           if(head==null) {
+               head=newNode;
+           }else{
+               tail.next=newNode;
+           }
+           tail=newNode;
+           size++;
+
+        }
+         void  insertAtBegin(int data) {
+             Node newNode = new Node(data);
+             if(head==null) {
+                 head=newNode;
+                 tail=newNode;
+             }else{
+                newNode.next=head;
+                head=newNode;
+             }
+
+        }
+        void insertAtAnyIdx(int data, int idx) {
+             Node newNode = new Node(data);
+             Node temp=head;
+             if(idx==0) {
+                 insertAtBegin(data);
+                 return;
+             }
+             if(idx==size) {
+                 insertAtEnd(data);
+                 return;
+             }
+             tail=newNode;
+             for( int i=1;i<=idx-1;i++) {
+                 temp=temp.next;
+             }
+            newNode.next=temp.next;
+             temp.next=newNode;
+        }
+        void display() {
+            Node temp=head;
+            while(temp!=null) {
+                System.out.print(temp.data+" ");
+                temp=temp.next;
+            }
+            System.out.println();
+        }
+
+    }
+    public static void main(String[] args) {
+        linkedList list=new linkedList();
+        list.insertAtBegin(1);
+        list.insertAtEnd(2);
+        list.insertAtEnd(3);
+        list.insertAtEnd(4);
+        list.insertAtEnd(5);
+        list.display();
+        list.insertAtBegin(5);
+        list.insertAtEnd(2);
+        list.display();
+        list.insertAtAnyIdx(9,7);
+        list.display();
+        
+      System.out.println(list.head.data);
+      System.out.println(list.tail.data);
+    }
+}
