@@ -1,0 +1,82 @@
+public class LinkedListPrint {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+        static Node intersectionNode(Node head1, Node head2) {
+            Node temp1 = head1;
+            Node temp2 = head2;
+            int size1 = 0;
+            int size2 = 0;
+            while (temp1 != null) {
+                size1++;
+                temp1 = temp1.next;
+            }
+            temp1 = head1;
+            while (temp2 != null) {
+                size2++;
+                temp2 = temp2.next;
+            }
+            temp2 = head2;
+            if (size1 > size2) {
+                int step = size1 - size2;
+                for (int i = 1; i <= step; i++) {
+                    temp1 = temp1.next;
+                }
+            } else {
+                int step = size2 - size1;
+                for (int i = 1; i <= step; i++) {
+                    temp2 = temp2.next;
+                }
+            }
+            while (temp1 != temp2) {
+                temp1 = temp1.next;
+                temp2 = temp2.next;
+            }
+            return temp1;
+        }
+
+        static void printList(Node node) {
+            while (node != null) {
+                System.out.print(node.data + " ");
+                node = node.next;
+            }
+            System.out.println();
+        }
+
+        public static void main(String[] args) {
+            Node a = new Node(1);
+            Node b = new Node(2);
+            Node c = new Node(7);
+            Node d = new Node(8);
+            Node e = new Node(9);
+            a.next = b;
+            b.next = c;
+            c.next = d;
+            d.next = e;
+
+            Node a1 = new Node(3);
+            Node a2 = new Node(4);
+            Node a3 = new Node(5);
+            Node a4 = new Node(6);
+            Node a5 = new Node(7);
+
+
+            a1.next = a2;
+            a2.next = a3;
+            a3.next = a4;
+            a4.next = a5;
+            a5.next = c;
+
+
+            
+            a = intersectionNode(a, a1);
+            printList(a);
+
+        }
+    }
