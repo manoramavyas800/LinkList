@@ -1,0 +1,10 @@
+static Node reverseListRecursion(Node head) {
+        if ( head.next == null) {
+            return head;
+        }
+        Node headList=reverseListRecursion(head.next);
+        head.next.next=head;
+        head.next=null;
+        return headList;
+
+   }
