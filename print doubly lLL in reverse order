@@ -1,0 +1,46 @@
+package LinkedListbassic;
+
+public class LinkedListPrint {
+    static class Node {
+        int data;
+        Node next;
+        Node prev;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+    static void print(Node tail) {
+        Node temp =tail;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.prev;
+        }
+        System.out.println();
+    }
+
+        public static void main(String[] args) {
+
+            Node a1 = new Node(1);
+            Node a2 = new Node(24);
+            Node a3 = new Node(6);
+            Node a4 = new Node(23);
+            Node a5 = new Node(12);
+            Node a6 = new Node(3);
+
+            a1.next = a2;
+            a2.next = a3;
+            a3.next = a4;
+            a4.next = a5;
+            a5.next = a6;
+            a6.next = null;
+
+            a6.prev = a5;
+            a5.prev = a4;
+            a4.prev = a3;
+            a3.prev = a2;
+            a2.prev = a1;
+            a1.prev = null;
+            print(a6);
+        }
+    }
