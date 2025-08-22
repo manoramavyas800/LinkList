@@ -1,0 +1,11 @@
+ static void printRendom(Node rendom) {
+        Node temp =rendom;
+        while (temp.prev != null) {
+            temp = temp.prev;
+        }
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
