@@ -1,0 +1,20 @@
+    static void insertAtAnyIdx(Node head,int idx,int data) {
+
+        if(idx==0){
+            indertAtHead(head,data);
+        }
+        if(idx==size(head)){
+            indertAtTail(head,data);
+        }
+
+        Node temp=head;
+        for(int i=1;i<=idx-1;i++){
+            temp=temp.next;
+        }
+        Node r=temp.next;
+        Node newNode=new Node(data);
+        temp.next=newNode;
+        newNode.prev=temp;
+        newNode.next=r;
+        r.prev=newNode;
+    }
